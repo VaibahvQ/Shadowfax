@@ -71,9 +71,9 @@
     return React.createElement("main", { className: "auth-page" },
       React.createElement("section", { className: "auth-panel" },
         React.createElement("div", null,
-          React.createElement("p", { className: "eyebrow" }, "Full-Stack Assignment"),
-          React.createElement("h1", null, "Team Task Manager"),
-          React.createElement("p", { className: "muted" }, "Create projects, assign work, and track team progress with Admin and Member access.")
+          React.createElement("p", { className: "eyebrow" }, "Project Command Center"),
+          React.createElement("h1", null, "WorkFlow Desk"),
+          React.createElement("p", { className: "muted" }, "A focused workspace for teams to plan projects, assign tasks, and monitor delivery progress.")
         ),
         React.createElement("form", { onSubmit: submit, className: "auth-form" },
           React.createElement("div", { className: "tabs" },
@@ -97,7 +97,7 @@
           ),
           error && React.createElement("p", { className: "error" }, error),
           React.createElement("button", { className: "primary" }, mode === "login" ? "Login" : "Create Account"),
-          React.createElement("p", { className: "hint" }, "Demo: admin@example.com / admin123 or member@example.com / member123")
+          React.createElement("p", { className: "hint" }, "Demo Admin: admin@example.com / admin123")
         )
       )
     );
@@ -216,10 +216,20 @@
     const dashboard = data.dashboard || { total: 0, done: 0, inProgress: 0, overdue: 0, completion: 0, projects: [] };
 
     return React.createElement("div", { className: "app-shell" },
+      React.createElement("aside", { className: "side-rail" },
+        React.createElement("div", { className: "brand-mark" }, "WD"),
+        React.createElement("nav", null,
+          React.createElement("span", { className: "active" }, "Dashboard"),
+          React.createElement("span", null, "Projects"),
+          React.createElement("span", null, "Tasks")
+        ),
+        React.createElement("p", null, user.role)
+      ),
+      React.createElement("section", { className: "workspace" },
       React.createElement("header", { className: "topbar" },
         React.createElement("div", null,
-          React.createElement("p", { className: "eyebrow" }, user.role),
-          React.createElement("h1", null, "Team Task Manager")
+          React.createElement("p", { className: "eyebrow" }, "Logged in as " + user.role),
+          React.createElement("h1", null, "WorkFlow Desk")
         ),
         React.createElement("div", { className: "user-box" },
           React.createElement("span", null, user.name),
@@ -236,7 +246,7 @@
       React.createElement("main", { className: "content-grid" },
         React.createElement("section", { className: "panel wide" },
           React.createElement("div", { className: "panel-head" },
-            React.createElement("h2", null, "Tasks"),
+            React.createElement("h2", null, "Task Queue"),
             React.createElement("span", null, `${data.tasks.length} shown`)
           ),
           React.createElement("div", { className: "task-list" },
@@ -264,7 +274,7 @@
           )
         ),
         React.createElement("aside", { className: "panel" },
-          React.createElement("h2", null, "Project Progress"),
+          React.createElement("h2", null, "Delivery Progress"),
           dashboard.projects.map(project => React.createElement("div", { key: project.id, className: "progress-row" },
             React.createElement("div", null,
               React.createElement("strong", null, project.name),
@@ -277,7 +287,7 @@
           !dashboard.projects.length && React.createElement("p", { className: "empty" }, "No projects yet.")
         ),
         isAdmin && React.createElement("section", { className: "panel" },
-          React.createElement("h2", null, "Create Project"),
+          React.createElement("h2", null, "New Project"),
           React.createElement("form", { onSubmit: createProject, className: "stack-form" },
             React.createElement("input", { value: projectForm.name, onChange: e => setProjectForm({ ...projectForm, name: e.target.value }), placeholder: "Project name" }),
             React.createElement("textarea", { value: projectForm.description, onChange: e => setProjectForm({ ...projectForm, description: e.target.value }), placeholder: "Description" }),
@@ -290,7 +300,7 @@
           )
         ),
         isAdmin && React.createElement("section", { className: "panel" },
-          React.createElement("h2", null, "Create Task"),
+          React.createElement("h2", null, "Assign Work"),
           React.createElement("form", { onSubmit: createTask, className: "stack-form" },
             React.createElement("input", { value: taskForm.title, onChange: e => setTaskForm({ ...taskForm, title: e.target.value }), placeholder: "Task title" }),
             React.createElement("textarea", { value: taskForm.description, onChange: e => setTaskForm({ ...taskForm, description: e.target.value }), placeholder: "Task description" }),
@@ -311,6 +321,7 @@
             React.createElement("button", { className: "primary" }, "Assign Task")
           )
         )
+      )
       )
     );
   }
