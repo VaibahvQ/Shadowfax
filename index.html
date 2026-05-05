@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Task Manager</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <div>
+        <h1>Team Task Manager</h1>
+        <p>Full-stack project with authentication, projects, tasks, dashboard, and roles.</p>
+      </div>
+      <div class="status">Running</div>
+    </header>
+
+    <section id="auth-screen" class="grid auth-grid">
+      <form id="login-form" class="box">
+        <h2>Login</h2>
+        <label for="login-email">Email</label>
+        <input id="login-email" type="email" value="admin@example.com" required>
+        <label for="login-password">Password</label>
+        <input id="login-password" type="password" value="admin123" required>
+        <button type="submit">Login</button>
+        <p class="hint">Admin demo: admin@example.com / admin123</p>
+        <p class="hint">Member demo: member@example.com / member123</p>
+      </form>
+
+      <form id="signup-form" class="box">
+        <h2>Signup</h2>
+        <label for="signup-name">Name</label>
+        <input id="signup-name" required>
+        <label for="signup-email">Email</label>
+        <input id="signup-email" type="email" required>
+        <label for="signup-password">Password</label>
+        <input id="signup-password" type="password" minlength="6" required>
+        <label for="signup-role">Role</label>
+        <select id="signup-role">
+          <option value="Member">Member</option>
+          <option value="Admin">Admin</option>
+        </select>
+        <button type="submit">Create Account</button>
+      </form>
+    </section>
+
+    <section id="app-screen" class="hidden">
+      <div class="top-row">
+        <div>
+          <h2 id="welcome-title">Dashboard</h2>
+          <p id="role-text"></p>
+        </div>
+        <button id="logout-btn" class="secondary">Logout</button>
+      </div>
+
+      <section class="stats">
+        <article><strong id="total-tasks">0</strong><span>Total Tasks</span></article>
+        <article><strong id="todo-tasks">0</strong><span>To Do</span></article>
+        <article><strong id="progress-tasks">0</strong><span>In Progress</span></article>
+        <article><strong id="done-tasks">0</strong><span>Done</span></article>
+        <article><strong id="overdue-tasks">0</strong><span>Overdue</span></article>
+      </section>
+
+      <section class="grid">
+        <form id="project-form" class="box admin-only">
+          <h2>Create Project</h2>
+          <label for="project-name">Project Name</label>
+          <input id="project-name" required>
+          <label for="project-description">Description</label>
+          <textarea id="project-description" rows="3"></textarea>
+          <button type="submit">Add Project</button>
+        </form>
+
+        <form id="task-form" class="box admin-only">
+          <h2>Create Task</h2>
+          <label for="task-project">Project</label>
+          <select id="task-project" required></select>
+          <label for="task-title">Title</label>
+          <input id="task-title" required>
+          <label for="task-assignee">Assign To</label>
+          <select id="task-assignee" required></select>
+          <label for="task-due-date">Due Date</label>
+          <input id="task-due-date" type="date" required>
+          <label for="task-status">Status</label>
+          <select id="task-status">
+            <option>To Do</option>
+            <option>In Progress</option>
+            <option>Done</option>
+          </select>
+          <button type="submit">Add Task</button>
+        </form>
+      </section>
+
+      <section class="box">
+        <h2>Projects</h2>
+        <div id="project-list" class="list"></div>
+      </section>
+
+      <section class="box">
+        <h2>Tasks</h2>
+        <div id="task-list" class="list"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

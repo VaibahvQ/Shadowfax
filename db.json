@@ -1,0 +1,59 @@
+{
+  "users": [
+    {
+      "id": "u1",
+      "name": "Admin User",
+      "email": "admin@example.com",
+      "passwordHash": "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9",
+      "role": "Admin"
+    },
+    {
+      "id": "u2",
+      "name": "Member User",
+      "email": "member@example.com",
+      "passwordHash": "5600376e863d2f57a053518f324ad3840b0bc2348b573af281a7b7cbe7a228c6",
+      "role": "Member"
+    }
+  ],
+  "sessions": [],
+  "projects": [
+    {
+      "id": "p1",
+      "name": "Website Redesign",
+      "description": "Update company website pages.",
+      "createdBy": "u1"
+    },
+    {
+      "id": "p2",
+      "name": "Mobile App",
+      "description": "Build basic screens and API integration.",
+      "createdBy": "u1"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "projectId": "p1",
+      "title": "Create home page layout",
+      "assigneeId": "u2",
+      "dueDate": "2026-05-05",
+      "status": "In Progress"
+    },
+    {
+      "id": "t2",
+      "projectId": "p1",
+      "title": "Prepare content list",
+      "assigneeId": "u1",
+      "dueDate": "2026-04-20",
+      "status": "To Do"
+    },
+    {
+      "id": "t3",
+      "projectId": "p2",
+      "title": "Design login screen",
+      "assigneeId": "u2",
+      "dueDate": "2026-05-10",
+      "status": "Done"
+    }
+  ]
+}

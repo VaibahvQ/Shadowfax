@@ -1,0 +1,182 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f4f6f8;
+  color: #1f2937;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: min(1100px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 24px 0;
+}
+
+.header,
+.top-row,
+.stats,
+.grid {
+  display: grid;
+  gap: 16px;
+}
+
+.header,
+.top-row {
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+.header p,
+.hint,
+.muted {
+  color: #6b7280;
+}
+
+.status {
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: #dcfce7;
+  color: #166534;
+  font-weight: bold;
+}
+
+.grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: 18px;
+}
+
+.auth-grid {
+  align-items: start;
+}
+
+.box,
+.stats article {
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #fff;
+  padding: 18px;
+}
+
+label {
+  display: block;
+  margin: 12px 0 6px;
+  font-weight: bold;
+}
+
+input,
+select,
+textarea,
+button {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font: inherit;
+}
+
+button {
+  margin-top: 14px;
+  border: 0;
+  background: #2563eb;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+button.secondary {
+  width: auto;
+  margin: 0;
+  background: #4b5563;
+}
+
+.stats {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin-bottom: 18px;
+}
+
+.stats strong {
+  display: block;
+  font-size: 2rem;
+  color: #2563eb;
+}
+
+.stats span {
+  color: #4b5563;
+}
+
+.list {
+  display: grid;
+  gap: 10px;
+}
+
+.item {
+  display: grid;
+  gap: 8px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 12px;
+  background: #f9fafb;
+}
+
+.item-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #e0e7ff;
+  color: #3730a3;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.overdue {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.status-select {
+  max-width: 180px;
+}
+
+.hidden {
+  display: none;
+}
+
+.message {
+  margin-top: 10px;
+  color: #b91c1c;
+  font-weight: bold;
+}
+
+@media (max-width: 800px) {
+  .header,
+  .top-row,
+  .grid,
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  button.secondary {
+    width: 100%;
+  }
+}
